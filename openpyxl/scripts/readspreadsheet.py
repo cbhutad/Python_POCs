@@ -28,9 +28,7 @@ for singlecell in sheet[5]:
 
 
 """ better way is to use the iter_rows() and iter_cols(). 
-We have to pass 4 parameters min_row, max_row, min_col, max_col for both functions. This will return the cell objects in a tuple.
-iter_rows() returns the tuple of cell objects row wise whereas iter_cols() returns the tuple of cell objects column wise
-we can pass also values_only boolean parameter to return the value instead of cell object. """
+We have to pass 4 parameters min_row, max_row, min_col, max_col for both functions. This will return the cell objects in a tuple. Here either the min or max parameter must be specified. If the parameter is not specified then default value will be considered which min_row would be 1 and max_row would be maximum row in sheet. Same is applied for min_col and max_col. iter_rows() returns the tuple of cell objects row wise whereas iter_cols() returns the tuple of cell objects column wise we can pass also values_only boolean parameter to return the value instead of cell object. """
 
 for cells in sheet.iter_rows(min_row=2,
                             max_row=5,
@@ -52,7 +50,10 @@ for cells in sheet.iter_cols(min_row=2,
 
 print()
 
-""" instead of using iter_rows we can also rows which directly gives us the tuple of cell objects row wise"""
+""" instead of using iter_rows() we can also rows which directly gives us the tuple of cell objects row wise. Similarly we can use the columns directly instead of using iter_cols()"""
 
 for row in sheet.rows:
     print(row)
+
+for cols in sheet.columns:
+    print(cols)
